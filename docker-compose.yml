@@ -1,0 +1,23 @@
+version: '3'
+services:
+  backend:
+    #build: .
+    image: loyzious/sdc_3_backend:v.0.1.0
+    # https://hub.docker.com/r/loyzious/sdc_3_backend/
+    ports:
+      - '8000:8000'
+    command: python FastAPI.py
+    networks:
+      - mynetwork
+  frontend:
+    #build: .
+    image: loyzious/sdc_3_frontend:v.0.1.0
+    # https://hub.docker.com/r/loyzious/sdc_3_frontend/
+    ports:
+      - '8501:8501'
+    command: streamlit run dashboard.py
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:

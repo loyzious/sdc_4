@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+pydantic
+streamlit
+bs4
+pandas
+requests
+seaborn
+matplotlib
