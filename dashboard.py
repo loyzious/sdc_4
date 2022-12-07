@@ -5,6 +5,7 @@ import json
 import requests
 import seaborn as sns
 import matplotlib.pyplot as plt
+import subprocess
 
 st.title("My Dashboard")
 
@@ -117,6 +118,8 @@ st.dataframe(df_plot_1)
 inputs = {"x": x, "y": y}
 
 if st.sidebar.button('Calculate!'):
-    res = requests.post(url = "http://backend:8000/calculateMean", data = json.dumps(inputs))
+    res = requests.post(url = "http://sdc_4:8000/calculateMean", data = json.dumps(inputs))
 
     st.sidebar.subheader(f"API response:\nTestGesamt Mean = {res.text}")
+
+subprocess.Popen(["uvicorn", "--host", "0.0.0.0", "FastAPI:app"])
