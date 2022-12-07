@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_3cc343dcc53c42ffabd5157ef7093fef }}/loyzious/sdc_4_streamlit_fastapi:${{ github.sha }}
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_3cc343dcc53c42ffabd5157ef7093fef }}/sdc_4_streamlit_fastapi:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -48,4 +48,4 @@ jobs:
         app-name: 'ds21m001-sdc4'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_db1318e822d5459396221ce53b2b5849 }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_3cc343dcc53c42ffabd5157ef7093fef }}/loyzious/sdc_4_streamlit_fastapi:${{ github.sha }}'
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_3cc343dcc53c42ffabd5157ef7093fef }}/sdc_4_streamlit_fastapi:${{ github.sha }}'
